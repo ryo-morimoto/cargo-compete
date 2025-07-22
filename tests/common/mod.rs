@@ -22,7 +22,7 @@ pub fn atcoder_credentials() -> anyhow::Result<impl BufRead> {
     ensure!(!password.is_empty(), "`$ATCODER_PASSWORD` is empty");
 
     Ok(Cursor::new(
-        format!("{}\n{}\n", username, password).into_bytes(),
+        format!("{username}\n{password}\n").into_bytes(),
     ))
 }
 
