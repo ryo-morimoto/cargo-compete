@@ -1,5 +1,6 @@
 ---
 source: tests/new.rs
+assertion_line: 36
 expression: tree
 
 ---

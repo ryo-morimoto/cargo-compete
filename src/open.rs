@@ -1,7 +1,6 @@
 use crate::shell::Shell;
 use anyhow::{bail, Context as _};
 use camino::Utf8Path;
-use git2::Repository;
 use serde_json::json;
 use std::{borrow::Borrow, path::Path};
 use url::Url;
@@ -27,9 +26,12 @@ pub(crate) fn open(
         }
 
         let input = json!({
-            "git_workdir": Repository::discover(process_cwd)
+            "git_workdir": gix::discover(process_cwd)
                 .ok()
-                .and_then(|r| r.workdir().map(|p| ensure_utf8(p).map(ToOwned::to_owned)))
+                .and_then(|r| {
+                    r.worktree()
+                        .map(|wt| ensure_utf8(wt.base()).map(ToOwned::to_owned))
+                })
                 .transpose()?,
             "manifest_dir": pkg_manifest_dir,
             "paths": paths

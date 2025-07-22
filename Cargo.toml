@@ -25,7 +25,7 @@ derivative = "2.2.0"
 dirs-next = "2.0.0"
 easy-ext = "0.2.9"
 fwdansi = "1.1.0"
-git2 = "0.13.25"
+gix = { version = "0.70.0", features = ["max-performance-safe"] }
 heck = "0.3.3"
 human-size = "0.4.1"
 if_chain = "1.0.2"
