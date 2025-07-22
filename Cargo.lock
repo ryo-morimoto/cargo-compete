@@ -247,7 +247,6 @@ dependencies = [
  "anyhow",
  "atty",
  "az",
- "base64",
  "camino",
  "cargo_metadata",
  "derivative",
