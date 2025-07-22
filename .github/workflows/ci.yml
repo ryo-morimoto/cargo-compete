@@ -118,7 +118,7 @@ jobs:
 
       - name: 'Set up `${{ matrix.channel }}-${{ matrix.host-triple }}` (target: `${{ matrix.target-triple }}`)'
         id: install-toolchain
-        uses: dtolnay/rust-toolchain@${{ matrix.channel }}
+        uses: dtolnay/rust-toolchain@stable
         with:
           targets: ${{ matrix.target-triple }}
           components: clippy
